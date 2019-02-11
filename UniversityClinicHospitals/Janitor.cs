@@ -8,16 +8,16 @@ namespace UniversityClinicHospitals
     {
 
         public bool IsSweeping;
-        public Janitor(string name, int employeeID, int salary, bool wasPaid)
+        public Janitor(string name, int employeeID, int salary, bool paid) : base(name, employeeID, salary, paid)
         {
 
         }
      
         public override void PaySalary()
         {
-            if (WasPaid == false)
+            if (Paid == false)
             {
-                WasPaid = true;
+                Paid = true;
                 Console.WriteLine(Name + " was paid their salary of 40000");
             }else Console.WriteLine("Employee has already been paid, nice try");
         }
@@ -38,7 +38,7 @@ namespace UniversityClinicHospitals
             Console.WriteLine(Name + " " + IsSweeping);
             Console.WriteLine("Employee ID is: " + EmployeeID);
             Console.WriteLine("Yearly Salary: " + Salary);
-            Console.WriteLine(WasPaid);
+            Console.WriteLine(Paid);
         }
     }
 }

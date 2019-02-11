@@ -6,18 +6,16 @@ namespace UniversityClinicHospitals
 {
     class Program
     {
-        private static Employee employees = new Employee();
+        //private static Employee employees = new Employee();
         static void Main(string[] args)
         {
+
             Employee employees = new Employee();
-            Menu(employees);        
-        }   
-            
-        static void Menu(Employee employee)
-        {
-            Console.WriteLine("\t\t\tWelcome to University Clinic Hospitals\n\n\n" +
-                "Press 1 to view list of employees\n" +
-                "Press 2 to view list of current patients\n\n");
+
+            Console.WriteLine("\t\t\tWelcome to Univertiy Clinic" +
+                "\n\n\n\t\tPress 1 to view all your employees" +
+                "\n\t\tPress 2 to view current patients in hospital");
+            Console.WriteLine();
             bool running = true;
 
             while (running)
@@ -27,19 +25,21 @@ namespace UniversityClinicHospitals
                 switch (userInput)
                 {
                     case "1":
-                        Console.Clear();                        
-                        employee.PrintAllEmployees();
-                        break;
-                    default:
+                        Console.Clear();
+                        Console.WriteLine("\t\t\tCurrent employees at University Clinic\n");
+                        employees.PrintEmployees();
                         break;
 
                 }
-
-
-
             }
 
+        }    
+
+        static void PrintAllEmployees()
+        {
+            PrintAllEmployees();
         }
+       
         
 
         

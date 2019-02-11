@@ -7,16 +7,16 @@ namespace UniversityClinicHospitals
     public class Nurse : Employee
     {
         public int NumberOfPatirntsUnderCare;
-        public Nurse(string name, int employeeID, int salary, bool waspaid)
+        public Nurse(string name, int employeeID, int salary, bool paid) : base(name, employeeID, salary, paid)
         {
             NumberOfPatirntsUnderCare = 3;
         }
 
         public override void PaySalary()
         {
-            if (WasPaid == false)
+            if (Paid == false)
             {
-                WasPaid = true;
+                Paid = true;
                 Console.WriteLine(Name + " was paid their salary of 50000");
             }
             else Console.WriteLine("Employee has already been paid, nice try");
@@ -28,7 +28,7 @@ namespace UniversityClinicHospitals
             Console.WriteLine(Name+ " Has " + NumberOfPatirntsUnderCare+ "number of patients under thier car");
             Console.WriteLine("Employee ID is: " + EmployeeID);
             Console.WriteLine("Yearly Salary: " + Salary);
-            Console.WriteLine(WasPaid);
+            Console.WriteLine(Paid);
         }
 
         public void NurseTreatBloodLovel(Patient sickie)
