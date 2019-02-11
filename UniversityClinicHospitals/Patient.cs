@@ -11,15 +11,39 @@ namespace UniversityClinicHospitals
         public int Health_Level { get; private set; }
         public string Name { get; private set; }
 
+        //Constructors
+        public Patient(string name, int blood_level, int health_level)
+        {
+            Blood_Level = blood_level;
+            Health_Level = health_level;
+            Name = name;
+        }
+        public List<Patient> sickies { get; set; }
+
         public Patient()
         {
-            Blood_Level = 20;
-            Health_Level = 10;
-            Name = "Sickie Duer";
-        }
+            sickies = new List<Patient>()
+            {
+                new Patient("Brian", 20, 10),
+                new Patient("Billy", 20, 10)
 
-        public List<Patient> sickie = new List<Patient>();
+            };
+        }
         
+        //Methods
+        public void PrintPatients()
+        {
+            Console.Clear();
+            Console.WriteLine("\tPatient Name        Blood Level       Health Level\n");
+            for (int i = 0; i < sickies.Count; i++)
+            {
+                Console.WriteLine("          {1}                {2}                 {3}",
+                i.ToString(),
+                sickies[i].Name.ToString(),
+                sickies[i].Blood_Level.ToString(),
+                sickies[i].Health_Level.ToString());
+            }
+        }
 
         public void DoctorIncreaseBloodLevel()
         {

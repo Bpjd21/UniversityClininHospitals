@@ -6,21 +6,27 @@ namespace UniversityClinicHospitals
 {
     public class Doctor : Employee
     {
-        public string Specialty;
+        public string Specialty { get; set; }
         
-        public Doctor(string name, int employeeID, int salary, bool paid) : base(name, employeeID, salary, paid)
+        public Doctor(string name, int employeeID, int salary) : base(name, employeeID, salary)
         {
+            Name = name;
+            EmployeeID = employeeID;
+            Salary = 90000;
         }
-
+                
         public override void PaySalary()
         {
-            if(Paid == false)
+            if (Paid)
             {
-                Paid = true;
                 Console.WriteLine(Name + " was paid their salary of 90000");
             }
-            else Console.WriteLine("Employee has already been paid, nice try");
-        }
+            else
+            {
+                Paid = false;
+                Console.WriteLine(Name + " has already been paid, nice try");
+            }
+            }
  
 
         public void PrintDoctors()

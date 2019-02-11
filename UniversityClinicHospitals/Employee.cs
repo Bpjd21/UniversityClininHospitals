@@ -11,49 +11,50 @@ namespace UniversityClinicHospitals
         public int Salary { get; set; }
         public bool Paid { get; set; }
 
-        public Employee(string name, int employeeID, int salary, bool paid)
+        public Employee(string name, int employeeID, int salary)
         {
             Name = name;
             EmployeeID = employeeID;
-            Salary = salary;
-            paid = false;
+            Salary = salary;      
         }
         public List<Employee> employees { get; set; }
 
         public Employee()
         {
-
             employees = new List<Employee>()
             {
-                new Doctor("Dr Duer", 123, 90000, true),
-                new Nurse("Nurse Brian", 456, 50000, true),
-                new Receptionist("Mrs. Duer", 789, 45000, false),
-                new Janitor("Mr. Duer", 101, 40000, true),
-                
+                new Doctor("Dr Duer", 123, 90000),
+                new Nurse("Nurse Brian", 456, 50000),
+                new Receptionist("Mrs. Duer", 789, 45000),
+                new Janitor("Mr. Duer", 101, 40000),                
             };
-
         }
 
         public void PrintEmployees()
         {
-            
-            Console.WriteLine("\tName            Employee ID    Salary    Was Paid Salary\n");
+            Console.WriteLine("\t\t\tCurrent Employees at the Hospital\n\n");
+            Console.WriteLine($"\t\tName            Employee ID    Salary        \n");
             for (int i = 0; i < employees.Count; i++)
             {
-                
-
-                Console.WriteLine("      {1}      {2}       {3}      {4}   ",
+                Console.WriteLine("               {1}      {2}       {3}           ",
                     i.ToString(),
                     employees[i].Name.ToString().PadRight(15),
                     employees[i].EmployeeID.ToString().PadRight(5),
-                    employees[i].Salary.ToString().PadRight(8),
-                    employees[i].Paid = false);
-                    
+                    employees[i].Salary.ToString().PadRight(8));
+                Console.WriteLine();
             }
         }
 
+        public void isPaid()
+        {
+            if (Paid == true)
+            {
+                Console.WriteLine("Y");
+            }
+            else Console.WriteLine("N");
+        }
 
-
+               
         public virtual void PaySalary()
         {
 

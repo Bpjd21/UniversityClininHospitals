@@ -8,7 +8,7 @@ namespace UniversityClinicHospitals
     {
 
         public bool IsSweeping;
-        public Janitor(string name, int employeeID, int salary, bool paid) : base(name, employeeID, salary, paid)
+        public Janitor(string name, int employeeID, int salary) :base(name, employeeID, salary)
         {
 
         }

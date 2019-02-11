@@ -7,9 +7,9 @@ namespace UniversityClinicHospitals
     public class Nurse : Employee
     {
         public int NumberOfPatirntsUnderCare;
-        public Nurse(string name, int employeeID, int salary, bool paid) : base(name, employeeID, salary, paid)
+        public Nurse(string name, int employeeID, int salary) : base(name, employeeID, salary)
         {
-            NumberOfPatirntsUnderCare = 3;
+            
         }
 
         public override void PaySalary()

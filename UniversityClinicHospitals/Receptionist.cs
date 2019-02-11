@@ -6,8 +6,8 @@ namespace UniversityClinicHospitals
 {
     class Receptionist : Employee
     {
-            public bool IsOnPhone;
-        public Receptionist(string name, int employeeID, int salary, bool paid) : base(name, employeeID, salary, paid)
+        public bool IsOnPhone;
+        public Receptionist(string name, int employeeID, int salary) : base(name, employeeID, salary)
         {
         }
 
