@@ -8,11 +8,14 @@ namespace Doctor_Class_Test
     public class Doctor_Test
     {
         [Fact]
-        public void Can_Create_Doctor()
+        public void DoctorWasPaidTest()
         {
-            var doctor = new Doctor("Bob", "Hear", 123, 30000);
-            doctor.AddDoctor();
-            Assert.Equal("Doc", doctor.doctor[0].Name);
+            var newDoctor = new Doctor();
+            newDoctor.PaySalary();
+            Assert.True(newDoctor.WasPaid);
         }
+
+
+
     }
 }

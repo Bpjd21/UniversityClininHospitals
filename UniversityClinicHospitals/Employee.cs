@@ -6,43 +6,64 @@ namespace UniversityClinicHospitals
 {
     public class Employee
     {
-        public string Name { get; private set; }
-        public int EmployeeID { get; private set; }
-        public int Salary { get; private set; }
-        public bool WasPaid { get; private set; }
+        public string Name { get; set; }
+        public int EmployeeID { get; set; }
+        public int Salary { get; set; }
+        public bool WasPaid { get; set; }
 
-        public Employee(string name, int employeeID, int salary)
+        public Employee(string name, int employeeID, int salary, bool wasPaid)
         {
             Name = name;
             EmployeeID = employeeID;
             Salary = salary;
+            WasPaid = wasPaid;
         }
+
+        public List<Employee> employees;
 
         public Employee()
         {
-            Console.WriteLine("Basic constructor in employee class is running");
+            employees = new List<Employee>()
+            {
+                new Doctor("Dr Duer", 123, 90000, true),
+                new Nurse("Nurse Brian", 456, 50000, false),
+                new Janitor("Mr. Duer", 678, 45000, true),
+                new Receptionist("Mrs. Duer", 111, 40000, true)
+                
+            };
         }
+
+        public void PrintAllEmployees()
+        {
+            string type = "";
+            Console.WriteLine("\tName           EmployeeID      Salary        Was Paid This Year");
+            for (int i = 0; i < employees.Count; i++)
+            {
+                //if (employees[i].GetType() == typeof(Doctor))
+                //{
+                //    type = "Doctor";
+                //}
+                //else if (employees[i].GetType() == typeof(Nurse))
+                //{
+                //    type = "Nurse";
+                //}
+                Console.WriteLine("     {1}         {2}       {3}               {4}  ",
+                    i.ToString().PadRight(2),
+                    employees[i].Name.PadRight(12).ToString(),
+                    employees[i].EmployeeID,                   
+                    employees[i].Salary,
+                    employees[i].WasPaid,
+                    type.ToString());
+            }
+            
+
+        }    
 
         public virtual void PaySalary()
         {
-
+            WasPaid = false;
         }
 
-        public List<Employee> Employees { get; set; }
-
-        public void PrintAllEmployee()
-        {
-            string type = "";
-            Console.WriteLine("ID   Name   blah    blah    blah");
-            for(int i = 0; 1 < Employees.Count; i++)
-            {
-                if (Employees[i].GetType() == typeof(Doctor))
-                {
-                    type = "Doctor";
-                }
-                
-
-            }
-        }
+            
     }
 }

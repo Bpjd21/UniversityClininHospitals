@@ -13,5 +13,14 @@ namespace Patients_Test
             sickie.IncreaseBloodLevel();
             Assert.Equal(100, sickie.Blood_Level);
         }
+
+        [Fact]
+        public void DoctorCanEffectBloodLevel()
+        {
+            var doctor = new Patient();
+            doctor.IncreaseBloodLevel();
+            Assert.equal
+        }
+
     }
 }

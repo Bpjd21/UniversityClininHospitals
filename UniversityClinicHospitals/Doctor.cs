@@ -6,22 +6,45 @@ namespace UniversityClinicHospitals
 {
     public class Doctor : Employee
     {
-        public string Specialty { get; private set; }
-
-        public List<Doctor> doctor { get; set; }
-        public Doctor(string name, string specialty, int employeeID, int salary)
+        public string Specialty { get; set; }
+        
+        public Doctor(string name, int employeeID, int salary, bool wasPaid)
         {
-            doctor = new List<Doctor>()
+        }
+
+        public override void PaySalary()
+        {
+            if(WasPaid == false)
             {
-                new Doctor("Dr. Bob", "CardioVascular", 123, 9000)
-            };
-
+                WasPaid = true;
+                Console.WriteLine(Name + " was paid their salary of 90000");
+            }
+            else Console.WriteLine("Employee has already been paid, nice try");
         }
+ 
 
-        public void AddDoctor()
+        public void PrintDoctors()
         {
-           var doctor = new List<Doctor>();
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Specialty: " + Specialty);
+            Console.WriteLine("Employee ID is: " + EmployeeID);
+            Console.WriteLine("Yearly Salary: " + Salary);
+            Console.WriteLine(WasPaid);
         }
-       
+
+        public void DoctorTreatBlood(Patient sickie)
+        {
+            sickie.DoctorIncreaseBloodLevel();
+            Console.WriteLine("Patient's blood level has increased to "+ sickie.Blood_Level);
+            Console.ReadKey();
+        }
+
+        public void DoctorTreatHealth(Patient sickie)
+        {
+            sickie.DoctorIncreaseHealthLevel();
+            Console.WriteLine("Patient's health level has increased to " + sickie.Health_Level);
+            Console.ReadKey();
+        }
+
     }
 }
